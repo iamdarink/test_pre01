@@ -1,101 +1,146 @@
+'use client'
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+// เมื่อกดปุ่ม อ่านอาร์เรย์ที่ละตัว
+// รูปภาพและปุ่ม ข้ามไปก้อได้
+// ทำรูป ข้อความเป็น responsive
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
+  const [count, setCount] = useState(0);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    console.log("Data:", data[count].name);
+  }, [count]);
+
+  // useEffect(() => {
+  //   console.log("data", data);
+  // }, [count]);
+
+  const title = [
+    {
+      id: 1,
+      images: "../umbrella.svg",
+      title: "The best luxury hotels",
+      name: "From the latest trendy boutique hotel to the iconic palace with XXL pool, go for a mini-vacation just a few subway stops away from your home."
+    },
+    {
+      id: 2,
+      images: "../helm.svg",
+      title: "New experiences",
+      name: "Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… your Sundays will not be alike."
+    },
+    {
+      id: 3,
+      images: "../wallet.svg",
+      title: "Exclusive rates",
+      name: "By registering, you will access specially negotiated rates that you will not find anywhere else."
+    }
+  ]
+
+  const data = [
+    {
+      id: 1,
+      images: "../hammer.svg",
+      name: "Appointment every Wednesday 9am."
+    },
+    {
+      id: 2,
+      images: "../price.svg",
+      name: "First come, first served. Our offers are in limited quantities, so be quick."
+    },
+    {
+      id: 3,
+      images: "../notifications.svg",
+      name: "New offers every week. New experiences, new surprises. Your Sundays will no longer be alike."
+    }
+  ]
+
+
+
+  // const handleClick = () => {
+  //   console.log("data", data);
+  // };
+
+  return (
+    <div className="justify-between h-screen">
+      <nav className="fixed top-0 left-0 right-0 h-[70px] bg-zinc-800 text-white p-4 z-10">
+        <div className="flex-1 flex justify-center text-2xl font-bold">
+          ONEPIRATE
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="flex justify-end absolute top-1/2 -translate-y-1/2 right-4">
+          <button
+            className="px-4 font-bold"
+            onClick={() => router.push('/signin')}
+          >
+            SIGN IN
+          </button>
+          <button
+            className="px-4 text-rose-500 font-bold"
+            onClick={() => router.push('/signup')}
+          >
+            SIGN UP
+          </button>
+          {/* <a href="/signin" className="px-4 font-bold">
+            SIGN IN
+          </a>
+          <a href="/signup" className="px-4 text-rose-500 font-bold">
+            SIGN UP
+          </a> */}
+        </div>
+      </nav>
+      <div className="relative">
+        <img src="../image.png" alt="logo" width={100} height={100} className="w-full h-auto" />
+        <div className="absolute top-[120px] left-1/2 transform -translate-x-1/2 text-white text-center">
+          <h1 className="text-4xl font-bold m-14">UPGRADE YOUR SUNDAYS</h1>
+          <p className="text-xl">Enjoy secret offers up to -70% off the best luxury hotels every Sunday.</p>
+          <div className="flex justify-center m-14">
+            <button
+              className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]"
+              onClick={() => router.push('/signup')}>
+              REGISTER
+            </button>
+          </div>
+          <p className="text-l">Discover the experience</p>
+        </div>
+      </div>
+      <div className="flex flex-col p-[50px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 space-x-9">
+          {title.map((item) => (
+            <div key={item.id}>
+              <div className="flex flex-col items-center gap-[20px] p-[30px]">
+                <Image src={item.images} alt="icon" width={50} height={50} />
+                <div className="text-center text-xl font-bold p-5">{item.title}</div>
+                <div className="text-lg">{item.name}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex justify-center text-4xl font-bold">
+        How it works
+      </div>
+      <div className="flex flex-col p-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 p-15 ">
+          {data.map((item) => (
+            <div key={item.id}>
+              <div className="flex flex-col items-center gap-[40px] p-[30px]">
+                <div className="text-rose-500 text-2xl font-bold text-center">{item.id}</div>
+                <Image src={item.images} alt="icon" width={50} height={50} />
+                <div className="text-lg text-center">{item.name}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex justify-center">
+        {/* <button onClick={handleClick}
+          className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
+          GET STARTED
+        </button> */}
+      </div>
+    </div >
   );
 }
