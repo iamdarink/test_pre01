@@ -2,18 +2,19 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { it } from "node:test";
 
 // เมื่อกดปุ่ม อ่านอาร์เรย์ที่ละตัว
 // รูปภาพและปุ่ม ข้ามไปก้อได้
 
 export default function Home() {
   const router = useRouter();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState("");
 
 
-  //  useEffect(() => {
-  //    console.log("data", data);
-  //  }, [count]);
+  useEffect(() => {
+    console.log("data:", count);
+  }, [count]);
 
   const title = [
     {
@@ -63,11 +64,18 @@ export default function Home() {
     { id: 6, src: "../image6.png", title: "SHOPPING" },
   ]
 
+  const handleClick = (e: string) => {
+    try {
+      setCount(e);
 
-  const handleClick = () => {
-    console.log("data", data);
-  };
-
+      console.log("e", e);
+    } catch (error) {
+      console.error("error", error);
+    }
+  }
+  // const handleClick = (name) => {
+  //   console.log("data", count);
+  // };
   return (
     <div className="justify-between h-screen">
       <nav className="fixed top-0 left-0 right-0 h-[70px] bg-zinc-800 text-white p-4 z-10">
@@ -90,12 +98,12 @@ export default function Home() {
         </div>
       </nav>
       <div className="relative group min-h-[400px] sm:min-h-[600px] overflow-hidden">
-        <img 
-          src="../image.png" 
-          alt="logo" 
-          width={100} 
-          height={100} 
-          className="w-full h-full object-cover absolute top-0 left-0" 
+        <img
+          src="../image.png"
+          alt="logo"
+          width={100}
+          height={100}
+          className="w-full h-full object-cover absolute top-0 left-0"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
           <h1 className="text-2xl sm:text-4xl font-bold mb-8">UPGRADE YOUR SUNDAYS</h1>
@@ -136,15 +144,29 @@ export default function Home() {
                 <div className="text-lg text-center">{item.name}</div>
               </div>
             </div>
-          ))}
+          ))
+          }
         </div>
+        {data.map((item) => {
+          return (
+            <div key={item.id}>
+              <div className="flex justify-center">
+              <button onClick={() => handleClick(item.name)}
+                className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
+                GET STARTED
+              </button>
+              </div>
+            </div>
+          );
+        })}
+
       </div>
-      <div className="flex justify-center">
-        <button onClick={handleClick}
+      {/* <div className="flex justify-center">
+        {<button onClick={() => handleClick(item.name)}
           className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
           GET STARTED
-        </button>
-      </div>
+        </button> }
+      </div> */}
       <div className="flex justify-center text-4xl font-bold p-10">
         For all tastes and all desires
       </div>
@@ -158,7 +180,7 @@ export default function Home() {
               src={item.src}
               className="w-full h-full object-cover  "
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-0 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-0  flex items-center justify-center">
               <h2 className="text-white text-xl font-bold  group-hover:scale-105">
                 {item.title}
               </h2>
