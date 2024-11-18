@@ -5,19 +5,15 @@ import { useRouter } from "next/navigation";
 
 // เมื่อกดปุ่ม อ่านอาร์เรย์ที่ละตัว
 // รูปภาพและปุ่ม ข้ามไปก้อได้
-// ทำรูป ข้อความเป็น responsive
 
 export default function Home() {
   const router = useRouter();
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    console.log("Data:", data[count].name);
-  }, [count]);
 
-  // useEffect(() => {
-  //   console.log("data", data);
-  // }, [count]);
+  //  useEffect(() => {
+  //    console.log("data", data);
+  //  }, [count]);
 
   const title = [
     {
@@ -58,11 +54,19 @@ export default function Home() {
     }
   ]
 
+  const index = [
+    { id: 1, src: "../image1.png", title: "SNORKELING" },
+    { id: 2, src: "../image2.png", title: "MASSAGE" },
+    { id: 3, src: "../image3.png", title: "HIKING" },
+    { id: 4, src: "../image4.png", title: "TOUR" },
+    { id: 5, src: "../image5.png", title: "GASTRONOMY" },
+    { id: 6, src: "../image6.png", title: "SHOPPING" },
+  ]
 
 
-  // const handleClick = () => {
-  //   console.log("data", data);
-  // };
+  const handleClick = () => {
+    console.log("data", data);
+  };
 
   return (
     <div className="justify-between h-screen">
@@ -83,27 +87,27 @@ export default function Home() {
           >
             SIGN UP
           </button>
-          {/* <a href="/signin" className="px-4 font-bold">
-            SIGN IN
-          </a>
-          <a href="/signup" className="px-4 text-rose-500 font-bold">
-            SIGN UP
-          </a> */}
         </div>
       </nav>
-      <div className="relative">
-        <img src="../image.png" alt="logo" width={100} height={100} className="w-full h-auto" />
-        <div className="absolute top-[120px] left-1/2 transform -translate-x-1/2 text-white text-center">
-          <h1 className="text-4xl font-bold m-14">UPGRADE YOUR SUNDAYS</h1>
-          <p className="text-xl">Enjoy secret offers up to -70% off the best luxury hotels every Sunday.</p>
-          <div className="flex justify-center m-14">
+      <div className="relative group min-h-[400px] sm:min-h-[600px] overflow-hidden">
+        <img 
+          src="../image.png" 
+          alt="logo" 
+          width={100} 
+          height={100} 
+          className="w-full h-full object-cover absolute top-0 left-0" 
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+          <h1 className="text-2xl sm:text-4xl font-bold mb-8">UPGRADE YOUR SUNDAYS</h1>
+          <p className=" sm:text-xl max-w-2xl">Enjoy secret offers up to -70% off the best luxury hotels every Sunday.</p>
+          <div className="my-8">
             <button
               className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]"
               onClick={() => router.push('/signup')}>
               REGISTER
             </button>
           </div>
-          <p className="text-l">Discover the experience</p>
+          <p className="text-sm sm:text-l">Discover the experience</p>
         </div>
       </div>
       <div className="flex flex-col p-[50px]">
@@ -136,10 +140,31 @@ export default function Home() {
         </div>
       </div>
       <div className="flex justify-center">
-        {/* <button onClick={handleClick}
+        <button onClick={handleClick}
           className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
           GET STARTED
-        </button> */}
+        </button>
+      </div>
+      <div className="flex justify-center text-4xl font-bold p-10">
+        For all tastes and all desires
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 ">
+        {index.map((item) => (
+          <div
+            key={item.id}
+            className="relative group h-56 sm:h-80 overflow-hidden "
+          >
+            <img
+              src={item.src}
+              className="w-full h-full object-cover  "
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-0 flex items-center justify-center">
+              <h2 className="text-white text-xl font-bold  group-hover:scale-105">
+                {item.title}
+              </h2>
+            </div>
+          </div>
+        ))}
       </div>
     </div >
   );
