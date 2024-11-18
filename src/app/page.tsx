@@ -67,8 +67,6 @@ export default function Home() {
   const handleClick = (e: string) => {
     try {
       setCount(e);
-
-      console.log("e", e);
     } catch (error) {
       console.error("error", error);
     }
@@ -138,35 +136,21 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20 p-15 ">
           {data.map((item) => (
             <div key={item.id}>
-              <div className="flex flex-col items-center gap-[40px] p-[30px]">
+              <div className="flex flex-col items-center gap-[40px] pt-[30px] pb-[30px]">  
                 <div className="text-rose-500 text-2xl font-bold text-center">{item.id}</div>
                 <Image src={item.images} alt="icon" width={50} height={50} />
-                <div className="text-lg text-center">{item.name}</div>
+                <div className="text-lg text-center ">{item.name}</div>
               </div>
-            </div>
-          ))
-          }
-        </div>
-        {data.map((item) => {
-          return (
-            <div key={item.id}>
               <div className="flex justify-center">
-              <button onClick={() => handleClick(item.name)}
-                className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
-                GET STARTED
-              </button>
+                <button onClick={() => handleClick(item.name)}
+                  className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
+                  GET STARTED
+                </button>
               </div>
             </div>
-          );
-        })}
-
+          ))}       
+        </div>
       </div>
-      {/* <div className="flex justify-center">
-        {<button onClick={() => handleClick(item.name)}
-          className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
-          GET STARTED
-        </button> }
-      </div> */}
       <div className="flex justify-center text-4xl font-bold p-10">
         For all tastes and all desires
       </div>
@@ -178,7 +162,7 @@ export default function Home() {
           >
             <img
               src={item.src}
-              className="w-full h-full object-cover  "
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-0  flex items-center justify-center">
               <h2 className="text-white text-xl font-bold  group-hover:scale-105">
