@@ -116,7 +116,7 @@ export default function Home() {
           <p className="text-sm sm:text-l">Discover the experience</p>
         </div>
       </div>
-      <div className="flex flex-col p-[50px]">
+      <div className="flex flex-col p-[30px]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 space-x-9">
           {title.map((item) => (
             <div key={item.id}>
@@ -129,29 +129,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <div className="flex justify-center text-4xl font-bold">
-        How it works
-      </div>
-      <div className="flex flex-col p-10 ">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 p-15 ">
-          {data.map((item) => (
-            <div key={item.id}>
-              <div className="flex flex-col items-center gap-[40px] pt-[30px] pb-[30px]">  
-                <div className="text-rose-500 text-2xl font-bold text-center">{item.id}</div>
-                <Image src={item.images} alt="icon" width={50} height={50} />
-                <div className="text-lg text-center ">{item.name}</div>
-              </div>
-              <div className="flex justify-center">
-                <button onClick={() => handleClick(item.name)}
-                  className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
-                  GET STARTED
-                </button>
-              </div>
-            </div>
-          ))}       
-        </div>
-      </div>
-      <div className="flex justify-center text-4xl font-bold p-10">
+      <div className="flex justify-center text-4xl font-bold p-[30px]">
         For all tastes and all desires
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 ">
@@ -172,6 +150,30 @@ export default function Home() {
           </div>
         ))}
       </div>
+      <div className="flex justify-center text-4xl font-bold p-[30px]">
+        How it works
+      </div>
+      <div className="flex flex-col p-[10px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
+          {data.map((item) => (
+            <div key={item.id} className="flex flex-col h-full">
+              <div className="flex flex-col items-center gap-[40px] pt-[30px] pb-[30px] ">  
+                <div className="text-rose-500 text-2xl font-bold text-center">{item.id}</div>
+                <Image src={item.images} alt="icon" width={50} height={50} />
+                <div className="text-lg text-center">{item.name}</div>
+              </div>
+              <div className="flex justify-center mt-auto">
+                <button 
+                  onClick={() => handleClick(item.name)}
+                  className="flex justify-center bg-rose-500 text-white font-bold text-center p-[20px]">
+                  GET STARTED
+                </button>
+              </div>
+            </div>
+          ))}       
+        </div>
+      </div>
+      
     </div >
   );
 }
