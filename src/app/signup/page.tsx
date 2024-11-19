@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import Link from 'next/link';
 
 type FormValues = {
   firstName: string
@@ -11,27 +12,34 @@ type FormValues = {
 }
 
 export default function SignupPage() {
-
   const initialValues: FormValues = {
     firstName: '',
     lastName: '',
     email: '',
     password: '',
   }
-  
+
+  const [savedData, setSavedData] = useState<FormValues | null>(null);
+
+  useEffect(() => {
+    const data = localStorage.getItem('userSignupData');
+    if (data) {
+      setSavedData(JSON.parse(data));
+    }
+  }, []);
 
   const validate = (values: FormValues) => {
     const errors: Partial<FormValues> = {}
-    
+
     if (!values.firstName) {
-      errors.firstName = 'Frequired' 
+      errors.firstName = 'required'
     }
     if (!values.lastName) {
-      errors.lastName = 'required' 
+      errors.lastName = 'required'
     }
     if (!values.email) {
       errors.email = 'required'
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
       errors.email = 'Invalid email address'
     }
     if (!values.password) {
@@ -43,24 +51,25 @@ export default function SignupPage() {
   }
 
   const handleSubmit = (values: FormValues) => {
-    console.log('Form submitted with values: ', values)
+    localStorage.setItem('userSignupData', JSON.stringify(values));
+    setSavedData(values);
+    console.log('Form data saved to localStorage:', values)
   }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className="bg-red-50  p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center mb-6">Sign Up</h2>
+        <Link href="/signin" className=" hover:underline block text-center mt-4 mb-6">
+          Already have an account?
+        </Link>
         <Formik
           initialValues={initialValues}
           validate={validate}
-          onSubmit={(
-            values: FormValues,
-            { setSubmitting }: import('formik').FormikHelpers<FormValues>
-          ) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 500);
+          onSubmit={(values: FormValues, { setSubmitting }) => {
+
+            localStorage.setItem('userSignupData', JSON.stringify(values));
+            setSubmitting(false);
           }}
         >
           {() => (
@@ -106,16 +115,18 @@ export default function SignupPage() {
               </div>
 
               <div className="mb-6">
-                <button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
-                >
-                  Sign Up
-                </button>
+                <Link href="/signin">
+                  <button
+                    type="submit"
+                    className="w-full bg-rose-500 text-white p-2 rounded-md"
+                  >
+                    Sign Up
+                  </button>
+                </Link>
               </div>
             </Form>
-          )}        
-          </Formik>
+          )}
+        </Formik>
       </div>
     </div>
   )
