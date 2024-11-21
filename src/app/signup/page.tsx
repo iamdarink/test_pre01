@@ -49,6 +49,21 @@ export default function SignupPage() {
     router.push('/signin');
   };
 
+
+  const TextField = ({ label, name, type = "text" }: { label: string; name: string; type?: string }) => (
+    <div className="mb-4">
+      <label htmlFor={name} className="block text-sm font-medium text-gray-700">
+        {label}
+      </label>
+      <Field
+        type={type}
+        name={name}
+        className="w-full mt-2 p-2 border border-gray-300 rounded-md"
+      />
+      <ErrorMessage name={name} component="div" className="text-red-500 text-sm mt-1" />
+    </div>
+  );
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-red-50 p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -66,7 +81,11 @@ export default function SignupPage() {
         >
           {() => (
             <Form>
-              <div className="mb-4">
+              <TextField label="First Name" name="firstName" />
+              <TextField label="Last Name" name="lastName" />
+              <TextField label="Email" name="email" type="email" />
+              <TextField label="Password" name="password" type="password" />
+              {/* <div className="mb-4">
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
                   First Name
                 </label>
@@ -112,7 +131,7 @@ export default function SignupPage() {
                   className="w-full mt-2 p-2 border border-gray-300 rounded-md"
                 />
                 <ErrorMessage name="password" component="div" className="text-red-500 text-sm mt-1" />
-              </div>
+              </div> */}
 
               <div className="mb-6">
                 <button type="submit" className="w-full bg-rose-500 text-white p-2 rounded-md">
