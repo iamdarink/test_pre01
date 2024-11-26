@@ -13,7 +13,7 @@ export default function Solution3() {
 
     return (
         <div className="bg-white">
-                <div className="text-center px-6 py-16 bg-white max-w-2xl mx-auto">
+                <div className="text-center md:text-center lg:text-start px-10 py-16 bg-white mx-auto">
                     <h2 className="text-[32px] font-bold text-[#424242]">
                         Trusted by Our <span className="text-[#009AFF]">Partners</span>
                     </h2>
@@ -22,7 +22,7 @@ export default function Solution3() {
                     </p>
                 </div>
                 <div
-                    className="relative flex flex-wrap justify-center items-center 
+                    className="relative flex flex-wrap justify-center lg:justify-between items-center 
                                gap-4 md:gap-8 lg:gap-[30px] px-4 md:px-8 "
                 >
                     {imageData.map((image) => (

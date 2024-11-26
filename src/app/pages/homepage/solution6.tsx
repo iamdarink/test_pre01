@@ -8,14 +8,14 @@ export default function solution6() {
                 <img 
                     src="/Rectangle17.svg" 
                     alt="Rectangle17"
-                    className="w-screen h-[340px] object-cover"
+                    className="w-screen h-[340px] object-cover bg-[gray]"
                 />
-                <div className="absolute inset-0 flex items-center bg-gradient-to-r from-[#009AFF] to-transparentr">
+                <div className="absolute inset-0 flex items-center bg-gradient-to-r from-[#0099ff] ">
                     <div className="px-8 ">
                         <h2 className="text-[32px] font-bold text-[#FFFFFF]">
                             Get in touch <span className="text-[#424242]">with us!</span>
                         </h2>
-                        <p className="text-[20px] text-[#616161] mt-2">
+                        <p className="text-[20px] text-[#FFFFFF] mt-2">
                             ให้เราเป็นส่วนหนึ่งในการนำธุรกิจคุณไปสู่โลกดิจิทัลด้วยกัน คุยกับเราได้เลย!
                         </p>
                         <button 

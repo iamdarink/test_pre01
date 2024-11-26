@@ -30,7 +30,7 @@ export default function Solution4() {
 
     return (
         <div className="p-8 text-center bg-white">
-            <div className="text-center px-6 py-16 max-w-2xl mx-auto">
+            <div className="text-center px-6 py-16 mx-auto">
                 <h2 className="text-[32px] font-bold text-[#424242]">
                     Explore Our <span className="text-[#009AFF]">Solutions</span>
                 </h2>
@@ -38,18 +38,18 @@ export default function Solution4() {
                     พบกับนวัตกรรมและความคิดสร้างสรรค์ในทุกงานของเรา!
                 </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 w-full">
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-center items-center gap-4 md:gap-6 lg:gap-8 w-full">
                 {imageData.map((item, index) => (
                     <div
                         key={item.id}
-                        className="relative w-[306px] h-[450px] rounded-lg overflow-hidden shadow-lg"
+                        className="relative w-auto h-auto rounded-lg overflow-hidden shadow-lg"
                     >
                         <div
                             className={`absolute inset-0 bg-gradient-to-b ${index === 0
-                                    ? "from-[#673AB7] to-transparent"
+                                    ? "from-[#673AB7] "
                                     : index === 1
-                                        ? "from-[#009688] to-transparent"
-                                        : "from-[#F44336] to-transparent"
+                                        ? "from-[#009688] "
+                                        : "from-[#F44336] "
                                 }`}
                         />
                         <img
@@ -57,7 +57,7 @@ export default function Solution4() {
                             alt={item.alt}
                             className="w-full h-full object-cover "
                         />
-                        <div className="absolute inset-0 flex flex-col justify-between items-center text-white px-6 py-10 text-center">
+                        <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-6 py-10 text-center">
                             <div>
                                 <h3 className="text-[20px] font-bold">{item.title}</h3>
                                 <p className="text-[16px] mt-2">{item.description}</p>

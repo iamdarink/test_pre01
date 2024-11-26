@@ -1,106 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import router from 'next/router';
+import React from 'react'
 
-export default function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const menuItems = [
-        { label: "Home", route: "home", style: "text-[#424242] hover:text-[#009AFF]" },
-        { label: "About", route: "about", style: "text-[#424242] hover:text-[#009AFF]" },
-        { label: "Services", route: "services", style: "text-[#424242] hover:text-[#009AFF]" },
-        { label: "Project Solutions", route: "project-solutions", style: "text-[#424242] hover:text-[#009AFF]" },
-        {
-            label: "Contact",
-            route: "contact",
-            style: "bg-[#009AFF] text-white px-6 py-2 rounded-lg hover:bg-sky-400",
-            icon: "/phone.svg"
-        },
-    ];
-
-    const handleNavigation = (route: string) => {
-        router.push(`/${route}`);
-        setIsMenuOpen(false);
-    };
-
-    // ตรวจสอบขนาดหน้าจอเพื่อเปลี่ยนสถานะเมนู
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 1024) {
-                setIsMenuOpen(false);
-            }
-        };
-
-        // ติดตั้ง Event Listener
-        window.addEventListener('resize', handleResize);
-
-        // เรียกใช้ครั้งแรกเพื่อให้แน่ใจว่าสถานะถูกต้อง
-        handleResize();
-
-        // ลบ Event Listener เมื่อ Component ถูกทำลาย
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
+export default function solution1() {
     return (
         <div>
-            <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-10 flex items-center justify-between h-[80px] px-[16px] sm:px-[32px] lg:px-[10px] w-[393px] sm:w-[1024px] lg:w-auto lg:gap-[99px]">
-                <div>
-                    <img src="/logo.png" alt="icon" />
-                </div>
 
-                {/* เมนูปกติ (Desktop) */}
-                <div className="hidden lg:flex items-center gap-[99px]">
-                    {menuItems.map((item, index) => (
-                        <button
-                            key={index}
-                            className={item.style}
-                            onClick={() => handleNavigation(item.route)}
-                        >
-                            {item.icon && (
-                                <img src={item.icon} alt={item.label} className="inline w-[20px] h-[20px] mr-2" />
-                            )}
-                            {item.label}
-                        </button>
-                    ))}
-                </div>
+            <div className="relative inset-20 left-0 right-0 w-full h-[1024px] mx-full">
+                <div className="relative flex flex-col items-center justify-center gap-[100px] h-full text-center bg-gradient-to-b from-gray-100">
+                    <img
+                        src="/Rectangle-18.png"
+                        alt="Rectangle"
+                        className="object-cover absolute top-0 left-0 w-full h-full z-[-1]"
+                    />
 
-                {/* Hamburger Menu (Mobile) */}
-                <div className="lg:hidden">
-                    <button
-                        onClick={() => setIsMenuOpen(true)}
-                        className="border-2 border-[#009AFF] text-[#009AFF] px-3 py-2 rounded-md flex items-center gap-2"
-                    >
-                        <img src="../menu.png" alt="Menu" className="w-[20px] h-[20px]" />
-                        Menu
-                    </button>
-                </div>
-            </nav>
+                    <div>
+                        <h1 className="text-[64px] font-bold mb-8 text-[#009AFF]">Coding Hub</h1>
+                        <p className="text-[#616161] text-[24px] mb-8">We Build Software Solution for Digital Transformation</p>
+                        <p className="text-[#424242] text-[16px] ">เปลี่ยนธุรกิจของคุณให้ก้าวทันโลกดิจิทัล</p>
+                    </div>
 
-            {/* เมนูแบบครึ่งจอ (สำหรับ Mobile) */}
-            {isMenuOpen && (
-                <div className="fixed inset-0 backdrop-blur-md z-20 flex flex-col items-center justify-center h-1/2">
-                    <div className="mb-8 flex items-center justify-between w-full px-4">
-                        <img src="/logo.png" alt="icon"  />
-                        <button
-                            onClick={() => setIsMenuOpen(false)}
-                            className="absolute top-5 right-5 text-[#616161] hover:text-sky-400"
-                        >
-                            <span className="text-xl font-bold">Close</span>
+                    <div>
+                        <button className="px-8 py-3 bg-blue-500 text-white font-medium rounded-full shadow-md bg-gradient-to-b from-[#009AFF] to-[#0059B7] hover:opacity-50 hover:text-opacity-50 transition-all duration-300">
+                            Talk with Us
                         </button>
                     </div>
-                    {menuItems.map((item, index) => (
-                        <button
-                            key={index}
-                            className={`text-[16px] mb-2 text-[#424242] ${item.style}`}
-                            onClick={() => handleNavigation(item.route)}
-                        >
-                            {item.icon && (
-                                <img src={item.icon} alt={item.label} className="inline w-[20px] h-[20px] mr-2" />
-                            )}
-                            {item.label}
-                        </button>
-                    ))}
+
+                    <div className="text-blue-500 ">
+                        <img src="/Shape.svg" alt="shape" />
+                    </div>
                 </div>
-            )}
+            </div>
         </div>
-    );
+    )
+
 }
