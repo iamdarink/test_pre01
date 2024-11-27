@@ -4,19 +4,19 @@ export default function Solution2() {
     const data = [
         {
             id: 1,
-            images: "../brain-circuit.png",
+            images: "../detail/brain-circuit.png",
             title: "Infrastructure and Operations",
             name: "This category underpins digital business, focusing on creating scalable, secure environments for IT operations and services, leveraging cloud computing, DevOps, cybersecurity, and IoT to enhance flexibility and efficiency."
         },
         {
             id: 2,
-            images: "../display-chart.png",
+            images: "../detail/display-chart.png",
             title: "Data Management and Analytics",
             name: "It emphasizes handling and analyzing vast data to derive actionable insights, utilizing Big Data, AI/ML, and Blockchain technologies to drive strategic decisions and optimize operations."
         },
         {
             id: 3,
-            images: "../user-group.png",
+            images: "../detail/user-group.png",
             title: "Customer and User Experience",
             name: "This area enhances how customers and users engage with businesses, using CRM and DXP technologies to deliver personalized, seamless experiences across various digital platforms and touchpoints."
         }

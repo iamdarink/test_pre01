@@ -3,12 +3,12 @@ import React from "react";
 
 export default function Solution3() {
     const imageData = [
-        { id: 1, src: "/image15.svg", alt: "image15" },
-        { id: 2, src: "/image16.svg", alt: "image16" },
-        { id: 3, src: "/image20.svg", alt: "image17" },
-        { id: 4, src: "/image17.svg", alt: "image18" },
-        { id: 5, src: "/image18.svg", alt: "image19" },
-        { id: 6, src: "/image19.svg", alt: "image20" },
+        { id: 1, src: "/partners/image15.svg", alt: "image15" },
+        { id: 2, src: "/partners/image16.svg", alt: "image16" },
+        { id: 3, src: "/partners/image20.svg", alt: "image17" },
+        { id: 4, src: "/partners/image17.svg", alt: "image18" },
+        { id: 5, src: "/partners/image18.svg", alt: "image19" },
+        { id: 6, src: "/partners/image19.svg", alt: "image20" },
     ];
 
     return (

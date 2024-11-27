@@ -4,7 +4,7 @@ export default function Solution4() {
     const imageData = [
         {
             id: 1,
-            src: "/Rectangle1.svg",
+            src: "/project/Rectangle1.svg",
             alt: "Rectangle1",
             title: "Face Recognition Solution",
             description: "Face Recognition System includes the capability to accurately count the number of people attending events.",
@@ -12,7 +12,7 @@ export default function Solution4() {
         },
         {
             id: 2,
-            src: "/Rectangle2.svg",
+            src: "/project/Rectangle2.svg",
             alt: "Rectangle2",
             title: "Visitor Management System",
             description: "Manage vehicle entries and exits effortlessly with our visitor management system.",
@@ -20,7 +20,7 @@ export default function Solution4() {
         },
         {
             id: 3,
-            src: "/Rectangle3.svg",
+            src: "/project/Rectangle3.svg",
             alt: "Rectangle3",
             title: "Online Queue Management System",
             description: "Maximize productivity and minimize wait times with our reliable online queue management.",

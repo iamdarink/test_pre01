@@ -15,7 +15,7 @@ export default function Solution7() {
         {
             id: 3,
             name: "Contact",
-            Image: ["../phone.png", "../email.png", "../smartphone.png", "../line.png"],
+            Image: ["../footer/phone.png", "../footer/email.png", "../footer/smartphone.png", "../footer/line.png"],
             alt: ["phone1", "email", "smartphone", "Vector"],
             description: [
                 "(66) 2513 6785 - 6",
@@ -72,7 +72,7 @@ export default function Solution7() {
                                 {item.description.map((subItem, index) => (
                                     <li
                                         key={index}
-                                        className={`flex items-center gap-3 text-sm sm:justify-center lg:justify-start "
+                                        className={`flex items-center gap-3 text-sm justify-center sm:justify-center lg:justify-start "
                                             }`}
                                     >
                                         {item.Image && item.Image[index] && (
