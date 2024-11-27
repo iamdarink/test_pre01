@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function solution1() {
+export default function Solution1() {
     return (
         <div>
 

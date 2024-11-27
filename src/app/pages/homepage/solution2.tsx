@@ -32,7 +32,7 @@ export default function Solution2() {
                             ABOUT <span className="text-[#009AFF]">US</span>
                         </h2>
                         <p className="text-[20px] text-[#616161] mt-2">รู้จักเราให้มากขึ้น</p>
-                        <p className="text-[#616161] mt-6 max-w-4xl mx-auto leading-relaxed">
+                        <p className="text-[#616161] mt-6 max-w-4xl mx-auto">
                             Coding Hub Co.,Ltd. is a software development and technology consulting company.
                             With a customer base ranging from smb to enterprise, we have a strong track record of collaborating closely
                             with our clients to plan and build solutions, mobile apps, web platforms, business automation and intelligent tools to serve digital transformation.
@@ -41,17 +41,17 @@ export default function Solution2() {
                     <div className="relative flex flex-col items-center">
                         <div className="hidden lg:flex">
                             <img
-                                src="/Ellipse1.svg"
+                                src="/circle/Ellipse1.svg"
                                 alt="Ellipse1"
                                 className="absolute w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] left-4 sm:left-16 opacity-50"
                             />
                             <img
-                                src="/Ellipse2.svg"
+                                src="/circle/Ellipse2.svg"
                                 alt="Ellipse2"
                                 className="absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] top-10 sm:top-20 left-[150px] sm:left-[250px] opacity-50"
                             />
                             <img
-                                src="/Ellipse3.svg"
+                                src="/circle/Ellipse3.svg"
                                 alt="Ellipse3"
                                 className="absolute w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] top-2 right-8 sm:right-16 opacity-50"
                             />

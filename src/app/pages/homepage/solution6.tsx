@@ -1,12 +1,12 @@
 import router from 'next/router';
 import React from 'react';
 
-export default function solution6() {
+export default function Solution6() {
     return (
         <div>
             <div className="relative w-full h-auto">
-                <img 
-                    src="/Rectangle17.svg" 
+                <img
+                    src="/Rectangle17.svg"
                     alt="Rectangle17"
                     className="w-screen h-[340px] object-cover bg-[gray]"
                 />
@@ -18,7 +18,7 @@ export default function solution6() {
                         <p className="text-[20px] text-[#FFFFFF] mt-2">
                             ให้เราเป็นส่วนหนึ่งในการนำธุรกิจคุณไปสู่โลกดิจิทัลด้วยกัน คุยกับเราได้เลย!
                         </p>
-                        <button 
+                        <button
                             className="px-8 py-3 bg-white text-[#009AFF] text-[14px] font-medium rounded-full shadow-md mt-[15px]"
                             onClick={() => router.push('/contact')}
                         >
