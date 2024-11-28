@@ -4,7 +4,8 @@ import React from 'react'
 import Navbar from '@/app/component/navbar/navbar';
 
 import Footer from '@/app/component/footer/footer'
-import { Solution1, Solution2, Solution3, Solution4 } from '../../component/about';
+import Solution1 from '../../component/services/title';
+import Solution2 from '../../component/services/services';
 
 
 export default function about() {
@@ -13,8 +14,6 @@ export default function about() {
       <Navbar />
       <Solution1 />
       <Solution2 />
-      <Solution3 />
-      <Solution4 />
       <Footer />
     </>
   )
