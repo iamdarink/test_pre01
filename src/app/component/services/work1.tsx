@@ -11,7 +11,7 @@ export default function Work1() {
                 <p className="text-[20px] text-[#616161] mt-2">ขั้นตอนการทำงานแบบมืออาชีพ</p>
             </div>
             <div >
-                <div className="container mx-auto px-4 w-full]">
+                <div className="container mx-auto px-14 w-full]">
                     <div className="hidden lg:flex mt-10 ">
                         <div className="w-full h-[250px] justify-start items-center inline-flex">
                             <div className="w-[328px] h-[250px] p-[30px] bg-white rounded-[10px] shadow flex-col justify-start items-start gap-5 inline-flex">
@@ -30,14 +30,14 @@ export default function Work1() {
                                 <div className="self-stretch text-neutral-700 text-sm font-light">Our design team crafts intuitive interfaces, wireframes, and prototypes, refining designs collaboratively until they seamlessly align with your vision.</div>
                             </div>
                             <div className="w-[150px] h-[15px] bg-lime-600 rounded-tr-[20px]"></div>
-                            <div className="w-[170px] h-[15px] origin-top-left rotate-90 bg-lime-600 rounded-tl-[20px]"></div>
+                            <div className="w-[180px] h-[15px] origin-top-left rotate-90 bg-lime-600 rounded-tl-[20px]"></div>
                         </div>
                     </div>
                     <div className="hidden lg:flex mt-10">
                         <div className="w-full h-[250px] justify-end items-center inline-flex">
                             <div>
-                                <p className="w-[165px] h-[15px] origin-bottom-left rotate-90 bg-lime-600 rounded-bl-[20px]"></p>
-                                <p className="w-[172px] h-[15px] bg-lime-600 rounded-tl-[20px]"></p>
+                                <p className="w-[150px] h-[15px] origin-bottom-left rotate-90 bg-lime-600 rounded-bl-[20px]"></p>
+                                <p className="w-[170px] h-[15px] bg-lime-600 rounded-tl-[20px]"></p>
                             </div>
                             <div className="w-[328px] h-[250px] p-[30px] bg-white rounded-[10px] shadow flex-col justify-start items-start gap-5 inline-flex">
                                 <div className="self-stretch h-[94px] flex-col justify-center items-start gap-2.5 flex">
@@ -64,7 +64,7 @@ export default function Work1() {
                             </div>
                         </div>
                     </div>
-                    <div className="hidden lg:flex mt-10">
+                    <div className="hidden lg:flex mt-10 mb-10">
                         <div className="w-full h-[250px] justify-end items-center inline-flex">
                             <div className="w-[328px] h-[250px] p-[30px] bg-white rounded-[10px] shadow flex-col justify-start items-start gap-5 inline-flex">
                                 <div className="self-stretch h-[70px] flex-col justify-center items-start gap-2.5 flex">

@@ -8,6 +8,7 @@ import Solution1 from '../../component/services/title';
 import Solution2 from '../../component/services/services';
 import { Solution6 } from '@/app/component/homepage';
 import Work1 from '@/app/component/services/work1';
+import Work from '@/app/component/services/work';
 
 
 export default function services() {
@@ -17,6 +18,7 @@ export default function services() {
       <Solution1 />
       <Solution2 />
       <Work1 />
+      {/* <Work /> */}
       <Solution6 />
       <Footer />
     </>
