@@ -1,14 +1,17 @@
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import router from "next/router";
+
+
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const router = useRouter();
 
     const menuItems = [
-        { label: "Home", route: "home", className: "text-[#424242] hover:text-[#009AFF]" },
+        { label: "Home", route: "homepage", className: "text-[#424242] hover:text-[#009AFF]" },
         { label: "About", route: "about", className: "text-[#424242] hover:text-[#009AFF]" },
         { label: "Services", route: "services", className: "text-[#424242] hover:text-[#009AFF]" },
-        { label: "Project Solutions", route: "project-solutions", className: "text-[#424242] hover:text-[#009AFF]" },
+        { label: "Project Solutions", route: "projects", className: "text-[#424242] hover:text-[#009AFF]" },
         {
             label: "Contact",
             route: "contact",
@@ -18,8 +21,8 @@ export default function Navbar() {
     ];
 
     const handleNavigation = (route: string) => {
-        router.push(`/${route}`);
-        setIsMenuOpen(false);
+        router.push(`/pages/${route}`); 
+        setIsMenuOpen(false); 
     };
 
     // ปิดเมนู Hamburger
