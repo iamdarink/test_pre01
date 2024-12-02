@@ -1,11 +1,10 @@
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-
-
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
 
     const menuItems = [
         { label: "Home", route: "homepage", className: "text-[#424242] hover:text-[#009AFF]" },
@@ -21,25 +20,19 @@ export default function Navbar() {
     ];
 
     const handleNavigation = (route: string) => {
-        router.push(`/pages/${route}`); 
-        setIsMenuOpen(false); 
+        router.push(`/pages/${route}`);
+        setIsMenuOpen(false);
     };
 
-    // ปิดเมนู Hamburger
+    // ปิดเมนู Hamburger เมื่อขยายหน้าจอ
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 1024) {
                 setIsMenuOpen(false);
             }
         };
-
-        // ติดตั้ง Event Listener
         window.addEventListener("resize", handleResize);
-
-        // เรียกใช้ครั้งแรกเพื่อให้แน่ใจว่าสถานะถูกต้อง
         handleResize();
-
-        // ลบ Event Listener เมื่อ Component ถูกทำลาย
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
@@ -49,13 +42,13 @@ export default function Navbar() {
                 <div>
                     <img src="/logo.png" alt="icon" />
                 </div>
-
-                {/* เมนูปกติ */}
                 <div className="hidden lg:flex items-center gap-[99px]">
                     {menuItems.map((item, index) => (
                         <button
                             key={index}
-                            className={item.className}
+                            className={`${item.className} ${
+                                pathname.includes(item.route) ? "text-sky-400 font-bold" : ""
+                            }`}
                             onClick={() => handleNavigation(item.route)}
                         >
                             {item.icon && (
@@ -65,8 +58,6 @@ export default function Navbar() {
                         </button>
                     ))}
                 </div>
-
-                {/* Hamburger Menu (Mobile & Tablet <= 1024px) */}
                 <div className="lg:hidden md:flex">
                     <button
                         onClick={() => setIsMenuOpen(true)}
@@ -94,7 +85,9 @@ export default function Navbar() {
                         {menuItems.map((item, index) => (
                             <button
                                 key={index}
-                                className={item.className}
+                                className={`${item.className} ${
+                                    pathname.includes(item.route) ? "text-sky-400 font-bold" : ""
+                                }`}
                                 onClick={() => handleNavigation(item.route)}
                             >
                                 {item.icon && (

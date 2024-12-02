@@ -37,7 +37,7 @@ export default function Contactform() {
 
     const TextField = ({ label, name, type = "text" }: { label: string; name: string; type?: string }) => (
         <div>
-            <label htmlFor="service" className="block text-sm font-medium text-gray-700">
+            <label htmlFor={name} className="block text-sm font-medium text-gray-700">
                 {label}
             </label>
             <input
@@ -45,14 +45,15 @@ export default function Contactform() {
                 type={type}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.service}
-                className={`w-full px-3 py-2 border rounded-md ${formik.touched.service && formik.errors.service
-                    ? "border-red-500"
-                    : "border-gray-300"
-                    }`}
+                value={formik.values[name as keyof FormValues]}
+                className={`w-full px-3 py-2 border rounded-md ${
+                    formik.touched[name as keyof FormValues] && formik.errors[name as keyof FormValues]
+                        ? "border-red-500"
+                        : "border-gray-300"
+                }`}
             />
-            {formik.touched.service && formik.errors.service && (
-                <p className="text-sm text-red-500 mt-1">{formik.errors.service}</p>
+            {formik.touched[name as keyof FormValues] && formik.errors[name as keyof FormValues] && (
+                <p className="text-sm text-red-500 mt-1">{formik.errors[name as keyof FormValues]}</p>
             )}
         </div>
     );
